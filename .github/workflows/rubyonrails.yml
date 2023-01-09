@@ -28,9 +28,11 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+        working-directory: server
       # Add or replace dependency steps here
       - name: Install Ruby and gems
         uses: ruby/setup-ruby@ee2113536afb7f793eed4ce60e8d3b26db912da4 # v1.127.0
+        working-directory: server
         with:
           bundler-cache: true
       # Add or replace database setup steps here
@@ -47,8 +49,10 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+        working-directory: server
       - name: Install Ruby and gems
         uses: ruby/setup-ruby@ee2113536afb7f793eed4ce60e8d3b26db912da4 # v1.127.0
+        working-directory: server
         with:
           bundler-cache: true
       # Add or replace any other lints here
