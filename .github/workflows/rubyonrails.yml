@@ -10,6 +10,11 @@ on:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
+
+defaults:
+  run:
+    working-directory: server
+
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -28,32 +33,28 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-        working-directory: server
       # Add or replace dependency steps here
       - name: Install Ruby and gems
         uses: ruby/setup-ruby@ee2113536afb7f793eed4ce60e8d3b26db912da4 # v1.127.0
-        working-directory: server
         with:
+          ruby-version: '3.1.2'
           bundler-cache: true
       # Add or replace database setup steps here
       - name: Set up database schema
         run: bin/rails db:schema:load
-        working-directory: server
       # Add or replace test runners here
       - name: Run tests
         run: bin/rake
-        working-directory: server
 
   lint:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-        working-directory: server
       - name: Install Ruby and gems
         uses: ruby/setup-ruby@ee2113536afb7f793eed4ce60e8d3b26db912da4 # v1.127.0
-        working-directory: server
         with:
+          ruby-version: '3.1.2'
           bundler-cache: true
       # Add or replace any other lints here
       - name: Security audit dependencies
@@ -61,7 +62,5 @@ jobs:
         working-directory: server
       - name: Security audit application code
         run: bin/brakeman -q -w2
-        working-directory: server
       - name: Lint Ruby files
         run: bin/rubocop --parallel
-        working-directory: server
