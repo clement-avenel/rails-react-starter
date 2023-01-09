@@ -26,6 +26,7 @@ jobs:
       RAILS_ENV: test
       DATABASE_URL: "postgres://rails:password@localhost:5432/rails_test"
     steps:
+      - run: cd server
       - name: Checkout code
         uses: actions/checkout@v3
       # Add or replace dependency steps here
@@ -43,6 +44,7 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
+      - run: cd server
       - name: Checkout code
         uses: actions/checkout@v3
       - name: Install Ruby and gems
