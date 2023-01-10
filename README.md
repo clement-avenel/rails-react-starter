@@ -1,3 +1,5 @@
+[![CodeQL](https://github.com/clement-avenel/rails-react-starter/actions/workflows/codeql.yml/badge.svg)](https://github.com/clement-avenel/rails-react-starter/actions/workflows/codeql.yml)
+[![Ruby on Rails CI](https://github.com/clement-avenel/rails-react-starter/actions/workflows/rubyonrails.yml/badge.svg)](https://github.com/clement-avenel/rails-react-starter/actions/workflows/rubyonrails.yml)
 # Rails React Starter
 
 It combines the power of the React JavaScript framework with the simplicity and robustness
