@@ -11,13 +11,12 @@ on:
   pull_request:
     branches: [ "main" ]
 
-defaults:
-  run:
-    working-directory: server
-
 jobs:
   test:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./server
     services:
       postgres:
         image: postgres:11-alpine
