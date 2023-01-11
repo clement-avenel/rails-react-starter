@@ -1,4 +1,4 @@
 # frozen_string_literal: true
 
-class UsersController < ApplicationController
+class Api::V1::UsersController < ApplicationController
 end
