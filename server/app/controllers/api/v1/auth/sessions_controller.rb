@@ -3,6 +3,20 @@
 class Api::V1::Auth::SessionsController < Devise::SessionsController
   respond_to :json
 
+  def check_session
+    if user_signed_in?
+      render(json: {
+        status: { code: 200, message: 'User has an active session' }
+      }, status: :ok
+      )
+    else
+      render(json: {
+        status: { code: 401, message: 'User has no active session' }
+      }, status: :unauthorized
+      )
+    end
+  end
+
   private
 
   def respond_with(_resource, _options = {})
