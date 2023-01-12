@@ -7,18 +7,25 @@ class Api::V1::Auth::RegistrationsController < Devise::RegistrationsController
 
   def respond_with(resource, _options = {})
     if resource.persisted?
-      render(json: {
-        status: { code: 200, message: 'Signed up successfully', data: UserSerializer.new(resource) }
-      }, status: :ok
+      render(
+        json: {
+          status: {
+            code: 200,
+            message: 'Signed up successfully',
+            data: UserSerializer.new(resource)
+          }
+        },
+        status: :ok
       )
     else
       Rails.logger.debug(resource.errors.full_messages)
-      render(json: {
-        message: 'User could not be created successfull',
-        errors: resource.errors.full_messages,
-        status: :unprocessable_entity
-      }
-            )
+      render(
+        json: {
+          message: 'User could not be created successfull',
+          errors: resource.errors.full_messages,
+          status: :unprocessable_entity
+        }
+      )
     end
   end
 
