@@ -1,17 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import Table from 'components/Table';
+import { getFriends } from '../utils/friends_api_util';
 
 function UsersPage() {
   const [friends, setFriends] = useState([]);
   useEffect(() => {
-    fetch('http://localhost:3000/api/v1/friends')
-      .then((response) => response.json())
-      .then((data) => {
-        setFriends(data.data);
-      })
-      .catch((err) => {
-        console.log(err.message);
-      });
+    getFriends().then((data) => setFriends(data));
   }, []);
 
   return <Table data={friends} />;
