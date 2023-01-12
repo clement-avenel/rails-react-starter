@@ -15,6 +15,9 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
       resources :friends
+      devise_scope :user do
+        get 'auth/check_session', to: 'auth/sessions#check_session'
+      end
     end
   end
 end
