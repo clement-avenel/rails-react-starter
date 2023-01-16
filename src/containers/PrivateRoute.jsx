@@ -7,12 +7,13 @@ const PrivateRoute = () => {
   const [isAuthenticated, setAuthStatus] = useState([]);
 
   useEffect(() => {
-    async function getAuthStatus() {
+    const getAuthStatus = async () => {
       const status = await checkAuth();
       setAuthStatus(status);
-    }
+    };
     getAuthStatus();
   }, []);
+
   return isAuthenticated ? <Outlet /> : <Navigate to="/login" />;
 };
 
