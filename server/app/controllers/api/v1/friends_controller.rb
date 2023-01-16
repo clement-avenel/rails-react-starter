@@ -5,9 +5,14 @@ class Api::V1::FriendsController < ApplicationController
     friends = Friend.all
 
     if friends
-      render(json: { status: 'SUCCESS', message: 'Fetched all the friends successfully', data: friends },
-             status: :ok
-            )
+      render(
+        json: {
+          status: 'SUCCESS',
+          message: 'Fetched all the friends successfully',
+          data: friends
+        },
+        status: :ok
+      )
     else
       render(json: friends.errors, status: :bad_request)
     end
@@ -17,9 +22,14 @@ class Api::V1::FriendsController < ApplicationController
     friend = Friend.new(friend_params)
 
     if friend.save
-      render(json: { status: 'SUCCESS', message: 'Friend was created successfully!', data: friend },
-             status: :created
-            )
+      render(
+        json: {
+          status: 'SUCCESS',
+          message: 'Friend was created successfully!',
+          data: friend
+        },
+        status: :created
+      )
     else
       render(json: friend.errors, status: :unprocessable_entity)
     end
@@ -30,9 +40,19 @@ class Api::V1::FriendsController < ApplicationController
     friend = Friend.find(params[:id])
 
     if friend
-      render(json: { data: friend }, state: :ok)
+      render(
+        json: {
+          data: friend
+        },
+        state: :ok
+      )
     else
-      render(json: { message: 'Friend could not be found' }, status: :bad_request)
+      render(
+        json: {
+          message: 'Friend could not be found'
+        },
+        status: :bad_request
+      )
     end
   end
 
@@ -41,9 +61,19 @@ class Api::V1::FriendsController < ApplicationController
     friend = Friend.find(params[:id])
 
     if friend.destroy!
-      render(json: { message: 'Friend was deleted successfully' }, status: :ok)
+      render(
+        json: {
+          message: 'Friend was deleted successfully'
+        },
+        status: :ok
+      )
     else
-      render(json: { message: 'Friend does not exist' }, status: :bad_request)
+      render(
+        json: {
+          message: 'Friend does not exist'
+        },
+        status: :bad_request
+      )
     end
   end
 
@@ -52,9 +82,20 @@ class Api::V1::FriendsController < ApplicationController
     friend = Friend.find(params[:id])
 
     if friend.update!(friend_params)
-      render(json: { message: 'Friend was updated successfully', data: friend }, status: :ok)
+      render(
+        json: {
+          message: 'Friend was updated successfully',
+          data: friend
+        },
+        status: :ok
+      )
     else
-      render(json: { message: 'Friend cannot be updated' }, status: :unprocessable_entity)
+      render(
+        json: {
+          message: 'Friend cannot be updated'
+        },
+        status: :unprocessable_entity
+      )
     end
   end
 
