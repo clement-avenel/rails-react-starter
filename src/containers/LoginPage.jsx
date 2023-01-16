@@ -1,31 +1,19 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { login } from '../utils/auth_api_util';
+import React, { useState } from 'react';
+import { Navigate } from 'react-router-dom';
+import useAuthContext from 'hooks/useAuthContext';
 
 function LoginPage() {
-  const navigate = useNavigate();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const { user, login } = useAuthContext();
 
-  useEffect(() => {
-    if (isAuthenticated) {
-      navigate('/');
-    }
-  }, [isAuthenticated, navigate]);
+  if (user) {
+    return <Navigate replace to="/" />;
+  }
 
-  const handleLogin = async (e) => {
+  const handleLogin = (e) => {
     e.preventDefault();
-    try {
-      const response = await login(email, password);
-      if (response.status.code === 200) {
-        setIsAuthenticated(true);
-      } else {
-        throw new Error('Incorrect login credentials');
-      }
-    } catch (error) {
-      console.log(error);
-    }
+    login(email, password);
   };
 
   return (
