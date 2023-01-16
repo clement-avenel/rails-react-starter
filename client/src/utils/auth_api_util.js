@@ -1,4 +1,4 @@
-export const login = (email, password) =>
+export const authenticate = (email, password) =>
   fetch('http://localhost:3000/api/v1/auth/login', {
     method: 'POST',
     headers: {
@@ -31,7 +31,7 @@ export const signup = (user) =>
     data: { user }
   });
 
-export const logout = () =>
+export const destroy_session = () =>
   fetch({
     method: 'DELETE',
     url: 'http://localhost:3000/api/v1/auth/logout'
@@ -40,8 +40,8 @@ export const logout = () =>
     return res;
   });
 
-export const checkAuth = () => {
-  return fetch('http://localhost:3000/api/v1/auth/users', {
+export const getUser = () => {
+  return fetch('http://localhost:3000/api/v1/auth/current_user', {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -55,7 +55,7 @@ export const checkAuth = () => {
       return response.json();
     })
     .then((data) => {
-      return data.status === 200;
+      return data.data;
     })
     .catch(() => {
       return false;

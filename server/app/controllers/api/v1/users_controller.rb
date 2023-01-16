@@ -6,7 +6,8 @@ class Api::V1::UsersController < ApplicationController
     render(
       json: {
         status: 200,
-        message: 'Valid session'
+        message: 'Valid session',
+        data: current_user
       }, status: :ok
     )
   end

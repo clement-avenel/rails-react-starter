@@ -1,14 +1,13 @@
 import { BellIcon } from '@heroicons/react/24/outline';
 import IconButton from 'components/IconButton';
 import ImgButton from 'components/ImgButton';
-import { logout } from 'utils/auth_api_util';
-import { useNavigate } from 'react-router-dom';
+import useAuthContext from 'hooks/useAuthContext';
 
 function Header() {
-  const navigate = useNavigate();
+  const { logout } = useAuthContext();
 
   const handleLogout = () => {
-    logout().then(() => navigate('/login'));
+    logout();
   };
 
   return (

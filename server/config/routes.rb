@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
       resources :friends
-      resources :users, path: '/auth/users', only: %i[index show]
+      resources :users, path: '/auth/current_user', only: %i[index show]
     end
   end
 end
