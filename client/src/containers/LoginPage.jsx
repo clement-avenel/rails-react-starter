@@ -18,7 +18,7 @@ function LoginPage() {
     e.preventDefault();
     try {
       const response = await login(email, password);
-      if (response.ok) {
+      if (response.status.code === 200) {
         setIsAuthenticated(true);
       } else {
         throw new Error('Incorrect login credentials');

@@ -13,6 +13,7 @@ class User < ApplicationRecord
   delegate :role, to: :user_role
 
   validates :first_name, :last_name, presence: true
+  validates :email, presence: true, uniqueness: true
 
   def admin?
     role.name == Role::ADMIN_ROLE

@@ -4,20 +4,25 @@ export const login = (email, password) =>
     headers: {
       'Content-Type': 'application/json'
     },
-    credentials: 'include',
     body: JSON.stringify({
       user: {
-        first_name: 'Clément',
-        last_name: 'Avenel',
         email,
         password
       }
     })
   })
-    .then((response) => response)
-    .catch((err) => {
-      console.log(err);
-    });
+    .then((res) => {
+      if (res.ok) {
+        localStorage.setItem('token', res.headers.get('Authorization'));
+        return res.json();
+      } else {
+        throw new Error(res);
+      }
+    })
+    .then((data) => {
+      return data;
+    })
+    .catch((err) => console.error(err));
 
 export const signup = (user) =>
   fetch({
@@ -30,13 +35,29 @@ export const logout = () =>
   fetch({
     method: 'DELETE',
     url: 'http://localhost:3000/api/v1/auth/logout'
+  }).then((res) => {
+    localStorage.removeItem('token');
+    return res;
   });
 
 export const checkAuth = () => {
-  return fetch('http://localhost:3000/api/v1/auth/check_session', {
+  return fetch('http://localhost:3000/api/v1/auth/users', {
     method: 'GET',
-    credentials: 'include'
-  }).then((response) => {
-    return response.status === 200;
-  });
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: localStorage.getItem('token')
+    }
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(response.statusText);
+      }
+      return response.json();
+    })
+    .then((data) => {
+      return data.status === 200;
+    })
+    .catch(() => {
+      return false;
+    });
 };
