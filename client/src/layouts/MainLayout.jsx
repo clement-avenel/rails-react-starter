@@ -8,7 +8,7 @@ function MainLayout() {
     <>
       <Header />
       <SideBar />
-      <div className="w-full py-8 px-4 sm:px-6 md:px-8 lg:pl-72">
+      <div className="h-full w-full py-8 px-4 sm:px-6 md:px-8 lg:pl-72 bg:gray-100 dark:bg-gray-900">
         <Outlet />
       </div>
     </>

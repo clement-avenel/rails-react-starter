@@ -1,6 +1,7 @@
 import { BellIcon } from '@heroicons/react/24/outline';
 import IconButton from 'components/IconButton';
 import ImgButton from 'components/ImgButton';
+import DarkModeToggler from 'components/DarkModeToggler';
 import useAuthContext from 'hooks/useAuthContext';
 
 function Header() {
@@ -32,6 +33,7 @@ function Header() {
               onClick={() => handleLogout()}>
               Logout
             </button>
+            <DarkModeToggler />
           </div>
         </div>
       </nav>
