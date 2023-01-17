@@ -1,5 +1,3 @@
-import { BellIcon } from '@heroicons/react/24/outline';
-import IconButton from 'components/IconButton';
 import ImgButton from 'components/ImgButton';
 import DarkModeToggler from 'components/DarkModeToggler';
 import useAuthContext from 'hooks/useAuthContext';
@@ -23,7 +21,7 @@ function Header() {
         </div>
         <div className="w-full flex items-center justify-end ml-auto sm:justify-between sm:gap-x-3 sm:order-3">
           <div className="w-full flex flex-row items-center justify-end gap-3">
-            <IconButton icon={BellIcon} />
+            <DarkModeToggler />
             <ImgButton
               alt="Avatar"
               src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80"
@@ -33,7 +31,6 @@ function Header() {
               onClick={() => handleLogout()}>
               Logout
             </button>
-            <DarkModeToggler />
           </div>
         </div>
       </nav>

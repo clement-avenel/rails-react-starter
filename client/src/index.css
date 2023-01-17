@@ -1,3 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --light-background: #fff;
+  --dark-background: theme('colors.gray.800');
+}
+
+html {
+  --background: var(--light-background);
+}
+
+html.dark {
+  --background: var(--dark-background);
+}
+
+body {
+  background-color: var(--background);
+}

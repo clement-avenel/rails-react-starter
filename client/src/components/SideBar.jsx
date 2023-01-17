@@ -9,7 +9,7 @@ function SideBarItem({ icon: Icon, label, to }) {
         className={({ isActive }) =>
           [
             'flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-slate-700 rounded-md hover:bg-gray-100  dark:hover:bg-gray-900 dark:text-slate-400 dark:hover:text-slate-300',
-            isActive ? 'bg-gray-100' : null
+            isActive ? 'bg-gray-100 dark:bg-gray-900' : null
           ]
             .filter(Boolean)
             .join(' ')
