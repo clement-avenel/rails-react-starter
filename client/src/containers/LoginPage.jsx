@@ -25,9 +25,9 @@ function LoginPage() {
       <section className="flex h-screen w-full flex-col justify-center flex-1 px-4 py-12 overflow-hidden sm:px-6 lg:flex-none lg:px-20 xl:px-24 dark:bg-gray-900">
         <div className="w-full max-w-xl mx-auto lg:w-96">
           <div>
-            <a className="text-blue-600 dark:text-blue-400 text-medium" href="/">
+            <span className="text-blue-600 dark:text-blue-400 text-medium" href="/">
               Brand.
-            </a>
+            </span>
             <h2 className="mt-6 text-3xl font-extrabold text-neutral-600 dark:text-white">
               Sign in.
             </h2>
