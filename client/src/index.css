@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --light-background: #fff;
+  --light-background: theme('colors.white');
   --dark-background: theme('colors.gray.800');
 }
 
