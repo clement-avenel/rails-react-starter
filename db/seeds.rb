@@ -9,8 +9,7 @@ User.create(
       first_name: 'John',
       last_name: 'Doe',
       email: 'john@doe.fr',
-      password: 'password',
-    }
+      password: 'password'
     }
   ]
 )
