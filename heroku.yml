@@ -1,6 +1,0 @@
-build:
-  docker:
-    server: server/Dockerfile
-    client: client/Dockerfile
-  config:
-    RAILS_ENV: production
