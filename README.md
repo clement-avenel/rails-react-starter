@@ -12,6 +12,7 @@ application&apos;s state.
 - Rails 7.0.4
 - React 18.2.0
 - TailwindCSS 3.2.4
+- Docker
 
 ## Setup Rails
 - `cd server`
@@ -31,3 +32,10 @@ application&apos;s state.
 ## Run React
 - `cd client`
 - `npm start`
+
+## Setup with docker
+Assuming you have docker and docker-compose installed
+- `docker-compose run server bin/rails db:create db:migrate db:seed`
+
+## Run with docker
+- `docker-compose up`
