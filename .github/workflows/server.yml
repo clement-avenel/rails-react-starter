@@ -1,0 +1,25 @@
+name: "Server"
+on:
+  push:
+    branches: [ "server" ]
+  pull_request:
+    branches: [ "server" ]
+
+jobs:
+  deploy-server:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Build & Deploy server
+        uses: gonuit/heroku-docker-deploy@v1.3.3
+        with:
+          email: ${{ secrets.HEROKU_EMAIL }}
+          heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+          heroku_app_name: ${{ secrets.HEROKU_SERVER_APP_NAME }}
+          dockerfile_directory: ./server
+
+          dockerfile_name: Dockerfile
+          docker_options: "--no-cache"
+          process_type: web
