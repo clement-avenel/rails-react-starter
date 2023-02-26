@@ -19,17 +19,17 @@ function LoginPage() {
 
   return (
     <>
-      <header className="sticky top-0 inset-x-0 flex flex-wrap sm:justify-end sm:flex-nowrap z-[48] w-full bg-white text-sm py-2.5 px-3 sm:py-4 dark:bg-gray-900 dark:border-none">
+      <header className="absolute top-0 inset-x-0 flex sm:justify-end sm:flex-nowrap z-[48] w-full bg-white text-sm py-2.5 px-3 sm:py-4 dark:bg-gray-900 dark:border-none">
         <DarkModeToggler />
       </header>
-      <section className="flex h-screen w-full flex-col justify-center flex-1 px-4 py-12 overflow-hidden sm:px-6 lg:flex-none lg:px-20 xl:px-24 dark:bg-gray-900">
+      <section className="h-screen w-full flex flex-col justify-center flex-1 px-4 py-12 overflow-hidden sm:px-6 lg:flex-none lg:px-20 xl:px-24 dark:bg-gray-900">
         <div className="w-full max-w-xl mx-auto lg:w-96">
           <div>
             <span className="text-blue-600 dark:text-blue-400 text-medium" href="/">
               Brand.
             </span>
             <h2 className="mt-6 text-3xl font-extrabold text-neutral-600 dark:text-white">
-              Sign in.
+              Sign in
             </h2>
           </div>
 
@@ -50,13 +50,13 @@ function LoginPage() {
                       name="email"
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="Your Email"
-                      required=""
+                      required={true}
                       type="email"
                     />
                   </div>
                 </div>
 
-                <div className="space-y-1">
+                <div className="space-y-1 mt-3">
                   <label
                     className="block text-sm font-medium text-neutral-600 dark:text-white"
                     htmlFor="password">
@@ -70,13 +70,13 @@ function LoginPage() {
                       name="password"
                       onChange={(e) => setPassword(e.target.value)}
                       placeholder="Your Password"
-                      required=""
+                      required={true}
                       type="password"
                     />
                   </div>
                 </div>
 
-                <div className="flex items-center justify-between">
+                <div className="flex items-center justify-between mt-3">
                   <div className="flex items-center">
                     <input
                       className="w-4 h-4 text-blue-600 border-gray-200 rounded focus:ring-blue-500 dark:text-white"
@@ -101,7 +101,7 @@ function LoginPage() {
 
                 <div>
                   <button
-                    className="flex items-center justify-center w-full px-10 py-4 text-base font-medium text-center text-white transition duration-500 ease-in-out transform bg-blue-600 rounded-xl hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                    className="flex items-center justify-center w-full px-10 py-4 text-base font-medium text-center text-white transition duration-500 ease-in-out transform bg-blue-600 rounded-xl hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 mt-8"
                     type="submit">
                     Sign in
                   </button>
